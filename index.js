@@ -132,11 +132,8 @@ var bircumle=cumleKur("Ben ","iyi "  ,"bir " ,"yazılımcı " ,"olacağım!");
 			4. Oluşturulan her cümle yeni bir dizi oluşturulup o dizinin içine aktarılacak. 
 			5. Oluşturulan yeni dizi döndürülecek.
 	*/
-
-
-  function cumlelereDonustur(cumleler,ayraç=",") {
-    function ayrac(cumle){
-      if(cumle.length==5){
+/*
+           if(cumle.length==5){
         return cumleKur(cumle[0]+ayraç,cumle[1]+ayraç,cumle[2]+ayraç,cumle[3]+ayraç,cumle[4])};
       if(cumle.length==4){
           return cumleKur(cumle[0]+ayraç,cumle[1]+ayraç,cumle[2]+ayraç,cumle[3])};
@@ -147,10 +144,20 @@ var bircumle=cumleKur("Ben ","iyi "  ,"bir " ,"yazılımcı " ,"olacağım!");
       if(cumle.length==1){
                 return cumleKur(cumle[0])};
     }
-  
-    return cumleler.map(ayrac);
+  */
 
-}
+  function cumlelereDonustur(cumleler,ayraç=",") {
+    function ayrac(cumle){
+      let str="";
+      for (let i=0;i<cumle.length;i++){
+        str+=cumleKur(cumle[i]+ayraç);
+        i==cumle.length-1 ? str=str.substring(0, str.length - 1) : str=str ;
+      }
+      return str; 
+    }  
+    return cumleler.map(ayrac);
+};
+  
 
 
 /* GÖREV 2:
